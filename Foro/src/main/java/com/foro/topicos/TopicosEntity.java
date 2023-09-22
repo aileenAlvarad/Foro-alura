@@ -20,7 +20,8 @@ public class TopicosEntity {
 	private Long id;
 	
 	private String titulo; 
-	private String descripcion;
+	private String mensaje;
+	private String fechaCreacion;
 	
 	@ManyToOne(fetch= FetchType.EAGER)
 	@JoinColumn(name="usuario_fk")
@@ -42,16 +43,20 @@ public class TopicosEntity {
 		this.titulo = titulo;
 	}
 
-	public String getDescripcion() {
-		return descripcion;
+	public String getMensaje() {
+		return mensaje;
 	}
 
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+	public void setMensaje(String mensaje) {
+		this.mensaje = mensaje;
 	}
 
-	public UsuarioEntity getUsuarioEntity() {
-		return usuarioEntity;
+	public String getFechaCreacion() {
+		return fechaCreacion;
+	}
+
+	public void setFechaCreacion(String fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
 	}
 
 	public void setUsuarioEntity(UsuarioEntity usuarioEntity) {
