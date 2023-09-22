@@ -29,7 +29,7 @@ public class UsuariosController extends BaseController {
 
     @PostMapping(value ="/")
     @ResponseStatus(HttpStatus.OK)
-    public UsuarioEntity crearHuesped(@RequestBody UsuarioEntity huespedEntity) {
+    public UsuarioEntity crearUsuario(@RequestBody UsuarioEntity usuarioEntity) {
             return null;
     }
 

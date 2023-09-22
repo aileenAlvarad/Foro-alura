@@ -63,7 +63,7 @@
 			}
 			
 	    let post = JSON.stringify(postObj)
-		const url = "/hotel/login/"
+		const url = "/foro/login/"
 		let xhr = new XMLHttpRequest()
 		xhr.open('POST', url, true)
 		xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8')
@@ -71,7 +71,7 @@
 		xhr.onload = function () {
 		    if(xhr.status === 200) {
 		        document.getElementById("response").innerHTML = xhr.response; 
-		        window.location.href = "/hotel/buscar"; 
+		        window.location.href = "/foro/buscar"; 
 		        
 		    } else if(xhr.status === 500){
 		    	window.alert("Datos incorrectos, intentélo de nuevo");
@@ -80,7 +80,7 @@
 	}  
 	
 	function registrarse(){
-		window.location.replace("/hotel/altaHuesped");
+		window.location.replace("/foro/altaHuesped");
 	}
 </script>	
         
