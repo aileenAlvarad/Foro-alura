@@ -1,5 +1,7 @@
 package com.foro.buscador.topicos;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.foro.topicos.TopicosEntity;
@@ -16,5 +18,13 @@ public class BuscadorTopicosService {
 	public TopicosEntity buscarTopicoPorId(Long id) {
 		return buscadorTopicosRepository.findById(id).get();
 		
+	}  
+	
+	public List<TopicosEntity> consultarTodosLosTopicos() {
+		return buscadorTopicosRepository.findAll();
+
+	
 	} 
+	
+
 }

@@ -1,11 +1,8 @@
 package com.foro.topicos;
 
-import java.util.List;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -31,21 +28,21 @@ public class TopicosController extends BaseController{
 
 	@PostMapping(value = "/")
 	@ResponseStatus(HttpStatus.OK)
-	public TopicosEntity crearTopico(@RequestBody TopicosDTO topicosDTO) {
-		return null;
+	public TopicosEntity crearTopico(@RequestBody TopicoDTO topicosDTO) {
+		return topicosService.crearTopico(topicosDTO);
 	}
 	 
-
-	@PutMapping(value = "/")
+	@PutMapping(value = "/editar-topico")
 	@ResponseStatus(HttpStatus.OK)
-	public TopicosEntity modificar(@RequestBody TopicosDTO reservacionDTO) {
-		return null;
+	public TopicosEntity modificar(@RequestBody TopicoDTO topicoDTO) {
+		return topicosService.modificarTopicoPorId(topicoDTO);
 	}
+	
 	
 	@DeleteMapping(value = "/eliminar/{id}")
 	@ResponseStatus(HttpStatus.OK) 
 	public Long eliminarTopico(@PathVariable Long id) {
-		return null;
+		return topicosService.eliminarTopico(id);
 	}
 	
 	

@@ -1,5 +1,7 @@
 package com.foro.topicos;
 
+import java.time.LocalDate;
+
 import com.foro.usuario.UsuarioEntity;
 
 import jakarta.persistence.Entity;
@@ -21,7 +23,7 @@ public class TopicosEntity {
 	
 	private String titulo; 
 	private String mensaje;
-	private String fechaCreacion;
+	private LocalDate fechaCreacion;
 	
 	@ManyToOne(fetch= FetchType.EAGER)
 	@JoinColumn(name="usuario_fk")
@@ -51,16 +53,22 @@ public class TopicosEntity {
 		this.mensaje = mensaje;
 	}
 
-	public String getFechaCreacion() {
+	public LocalDate getFechaCreacion() {
 		return fechaCreacion;
 	}
 
-	public void setFechaCreacion(String fechaCreacion) {
+	public void setFechaCreacion(LocalDate fechaCreacion) {
 		this.fechaCreacion = fechaCreacion;
 	}
 
 	public void setUsuarioEntity(UsuarioEntity usuarioEntity) {
 		this.usuarioEntity = usuarioEntity;
+	}
+
+	@Override
+	public String toString() {
+		return "TopicosEntity [id=" + id + ", titulo=" + titulo + ", mensaje=" + mensaje + ", fechaCreacion="
+				+ fechaCreacion + ", usuarioEntity=" + usuarioEntity + "]";
 	}
 	
 	
