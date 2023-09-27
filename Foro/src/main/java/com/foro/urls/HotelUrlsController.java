@@ -26,9 +26,9 @@ public class HotelUrlsController {
 		return "/altaReservacion2.html";
 	} 
 	
-	@GetMapping({"/altaHuesped"})
-	public String altaHuesped( ) {
-		return "/altaHuesped.html";
+	@GetMapping({"/altaUsuario"})
+	public String altaUsuario( ) {
+		return "/registrarUsuario.html";
 	} 
 	
 	@GetMapping({"/buscar"}) //http://localhost:8080/hotel/buscar

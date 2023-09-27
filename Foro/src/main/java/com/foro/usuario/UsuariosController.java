@@ -2,6 +2,7 @@ package com.foro.usuario;
 
 import java.util.List;
 
+import jakarta.persistence.GeneratedValue;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,17 +22,65 @@ import com.crosscutting.BaseController;
 @RequestMapping("/usuarios")
 public class UsuariosController extends BaseController {
 
+
+
+
+
+
+
+
     private UsuarioService usuarioService;
 
     public UsuariosController(UsuarioService usuarioService) {
         this.usuarioService = usuarioService;
     }
 
+
+
+    @GetMapping(value = "all-users")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public List <UsuarioEntity> consultarTodos( ) {
+        
+        return usuarioService.consultarTodo();
+
+    }
+
+
+
+
+
+
+
+
+
+
     @PostMapping(value ="/")
     @ResponseStatus(HttpStatus.OK)
-    public UsuarioEntity crearUsuario(@RequestBody UsuarioEntity usuarioEntity) {
-            return null;
+    public UsuarioEntity crearUsuario(@RequestBody UsuarioDTO usuarioDTO) {
+
+
+            return usuarioService.crearUsuario(usuarioDTO);
+
+
+
+
+
+
+
+
+
+
     }
+
+
+
+
+
+
+
+
+
+
 
 }
 
