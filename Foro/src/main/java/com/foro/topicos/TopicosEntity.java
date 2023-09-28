@@ -65,6 +65,11 @@ public class TopicosEntity {
 		this.usuarioEntity = usuarioEntity;
 	}
 
+	
+	public UsuarioEntity getUsuarioEntity() {
+		return usuarioEntity;
+	}
+
 	@Override
 	public String toString() {
 		return "TopicosEntity [id=" + id + ", titulo=" + titulo + ", mensaje=" + mensaje + ", fechaCreacion="

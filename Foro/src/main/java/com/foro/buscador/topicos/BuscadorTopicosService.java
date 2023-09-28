@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.foro.topicos.TopicosEntity;
+import com.foro.topicos.TopicosResponseDTO;
+import com.foro.topicos.TopicosTransformer;
 
 @Service
 public class BuscadorTopicosService {
@@ -20,9 +22,9 @@ public class BuscadorTopicosService {
 		
 	}  
 	
-	public List<TopicosEntity> consultarTodosLosTopicos() {
-		return buscadorTopicosRepository.findAll();
-
+	public List<TopicosResponseDTO> consultarTodosLosTopicos() {
+		List<TopicosEntity> topicos =buscadorTopicosRepository.findAll();
+		return topicos.stream().map(TopicosTransformer::topicosResponseDTO).toList();
 	
 	} 
 	
