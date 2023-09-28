@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <!-- META SECTION -->
-<title>Actualizar Sistema de Reservación</title>
+<title>Actualizar Topicos</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -74,56 +74,47 @@
                                     </div>
 
 								<div class="form-group">
-									<label class="col-md-3 col-xs-12 control-label">Fecha de Check In</label>
-									<div class="col-md-6 col-xs-12">
-										<div class="input-group">
-											<span class="input-group-addon"><span
-												class="fa fa-calendar"></span></span> <input type="text" id="checkIn"
-												class="form-control datepicker" value="2023-01-01">
-										</div>
-										<span class="help-block">Haz clic en el campo de entrada para obtener el selector de fechas</span>
 									</div>
 								</div>
 
 								<div class="form-group">
-									<label class="col-md-3 col-xs-12 control-label">Fecha de Check Out</label>
-									<div class="col-md-6 col-xs-12">
-										<div class="input-group">
-											<span class="input-group-addon"><span
-												class="fa fa-calendar"></span></span> <input type="text" id="checkOut"
-												class="form-control datepicker" value="2023-01-01">
+									 <label class="col-md-3 col-xs-12 control-label">Titulo</label>
+                                        <div class="col-md-6 col-xs-12">                                            
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                                <input type="text" id="titulo" class="form-control"/ >
 										</div>
-										<span class="help-block">Haz clic en el campo de entrada para obtener el selector de fechas</span>
+										<span class="help-block">Escribe un titulo</span>
 									</div>
 								</div>
 
 									<div class="form-group">
-                                        <label class="col-md-3 col-xs-12 control-label">Valor de la Reservación</label>
+                                        <label class="col-md-3 col-xs-12 control-label">Mensaje</label>
                                         <div class="col-md-6 col-xs-12">                                            
                                             <div class="input-group">
                                                 <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                                <input type="text" id="valorReserva" class="form-control"/ >
+                                                <input type="text" id="mensaje" class="form-control"/ >
                                             </div>                                            
-                                            <span class="help-block">$</span>
+                                            <span class="help-block">Escribe un mensaje</span>
                                         </div>
                                     </div>
 
 								<div class="form-group">
-									<label class="col-md-3 col-xs-12 control-label">Método de Pago</label>
-									<div class="col-md-6 col-xs-12">
-										<select class="form-control " id="formaPago">
-											<option>transferencia</option>
-											<option>Dinero en efectivo</option>
-										</select>
-										<br /><br /><br /><br />
-								<div class="form-group">
+								<div class="form-group"> 
+								
+								<label class="col-md-3 col-xs-12 control-label">Nombre</label>
+                                        <div class="col-md-6 col-xs-12">                                            
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                                <input type="text" id="nombre" class="form-control"/ >
+                                            </div>                 
 								</div>
  
 
 							</div>
 							<div class="panel-footer">
 								<button class="btn btn-default" >Limpiar Formulario</button> 
-								<a href="/hotel/buscar">Ir a buscar Reservaciones o huespédes</a>
+								<a href="/foro/buscar">Ir a buscar todos los topicos</a>
 								<input class="btn btn-primary pull-right" onclick="actualizarInformacion()" type="button" value="Modificar" /> 
 								
 								
@@ -201,10 +192,10 @@
 		}
 	}  
 	
-	function cargarReservacion(){
+	function cargarTopico(){
 		const urlParams = new URLSearchParams(window.location.search);
 		const id = urlParams.get('id'); 
-		const url = "/hotel/buscar/reservacion/" + id
+		const url = "/foro/buscar/consultar-topico/" + id
        		let xhr = new XMLHttpRequest()
        		xhr.open('GET', url, true)
        		xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8')
@@ -217,18 +208,18 @@
         	xhr.send();
 		
 	} 
-	function asignarValoresAReservacion(reservacion){
-		 document.getElementById("id").value = reservacion["id"];  
-		 document.getElementById("checkIn").value = reservacion["checkIn"]; 
-		 document.getElementById("checkOut").value = reservacion["checkOut"]; 
-		 document.getElementById("valorReserva").value = reservacion["valorReserva"]; 
-		 document.getElementById("formaPago").value = reservacion["formaPago"]; 
+	function asignarValoresAReservacion(topico){
+		 document.getElementById("id").value = topico["id"];  
+		 document.getElementById("titulo").value = topico["titulo"]; 
+		 document.getElementById("mensaje").value = topico["mensaje"]; 
+		 document.getElementById("nombre").value = topico["usuarioEntity"]["name"]; 
 		 
+		
 	}
 
 	window.addEventListener('load', function() { //Cuando carga el html se manda a llamar a la funcion
     	//init() 
-    	cargarReservacion()
+    	cargarTopico()
     }); 
 </script>	  
 </body>
