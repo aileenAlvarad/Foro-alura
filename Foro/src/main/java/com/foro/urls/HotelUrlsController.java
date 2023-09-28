@@ -20,10 +20,10 @@ public class HotelUrlsController {
 		return "/pages-login.html";
 	} 
 	
-	@GetMapping({"/altaReservacion"}) //http://localhost:8080/hotel/altaReservacion
-	public String altaReserva( ) {
-		  System.out.println("Alta Reservacion");
-		return "/altaReservacion2.html";
+	@GetMapping({"/crear-topico"}) //http://localhost:8080/foro/crear-topico
+	public String crearTopico( ) {
+		  System.out.println("Creando topico");
+		return "/crearTopico.html";
 	} 
 	
 	@GetMapping({"/altaUsuario"})

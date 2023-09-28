@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <!-- META SECTION -->
-<title>Sistema de Reservación</title>
+<title>Crear Topicos</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -16,8 +16,6 @@
 
 </head>
 <body>
-
-	
 	<div class="page-content">
 
 		<!-- START X-NAVIGATION VERTICAL -->
@@ -46,7 +44,7 @@
 						<div class="panel panel-default">
 							<div class="panel-heading">
 								<h3 class="panel-title">
-									<strong>Sistema de Reservaciones </strong>
+									<strong>Crear Topicos</strong>
 								</h3>
 								<ul class="panel-controls">
 									<li><a href="#" class="panel-remove"><span
@@ -63,48 +61,31 @@
 								</div>
 
 								<div class="form-group">
-									<label class="col-md-3 col-xs-12 control-label">Fecha de Check In</label>
+									<label class="col-md-3 col-xs-12 control-label">Titulo</label>
 									<div class="col-md-6 col-xs-12">
 										<div class="input-group">
-											<span class="input-group-addon"><span
-												class="fa fa-calendar"></span></span> <input type="text" id="checkIn"
-												class="form-control datepicker" value="2023-01-01">
+										<span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                                <input type="text" id="titulo" class="form-control"/ >
 										</div>
-										<span class="help-block">Haz clic en el campo de entrada para obtener el selector de fechas</span>
+										<span class="help-block">Ingresa un titulo</span>
 									</div>
 								</div>
 
 								<div class="form-group">
-									<label class="col-md-3 col-xs-12 control-label">Fecha de Check Out</label>
+									<label class="col-md-3 col-xs-12 control-label">Mensaje</label>
 									<div class="col-md-6 col-xs-12">
 										<div class="input-group">
-											<span class="input-group-addon"><span
-												class="fa fa-calendar"></span></span> <input type="text" id="checkOut"
-												class="form-control datepicker" value="2023-01-01">
+											<span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                                <input type="text" id="mensaje" class="form-control"/ >
 										</div>
-										<span class="help-block">Haz clic en el campo de entrada para obtener el selector de fechas</span>
+										<span class="help-block">Escribe tu mensaje</span>
 									</div>
 								</div>
 
 									<div class="form-group">
-                                        <label class="col-md-3 col-xs-12 control-label">Valor de la Reservación</label>
-                                        <div class="col-md-6 col-xs-12">                                            
-                                            <div class="input-group">
-                                                <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                                <input type="text" id="valorReserva" class="form-control"/ >
-                                            </div>                                            
-                                            <span class="help-block">$</span>
-                                        </div>
                                     </div>
 
 								<div class="form-group">
-									<label class="col-md-3 col-xs-12 control-label">Método de Pago</label>
-									<div class="col-md-6 col-xs-12">
-										<select class="form-control select" id="formaPago">
-											<option>transferencia</option>
-											<option>Dinero en efectivo</option>
-										</select>
-										<br /><br /><br /><br />
 								<div class="form-group">
 								</div>
  
@@ -113,7 +94,7 @@
 							<div class="panel-footer">
 								<button class="btn btn-default" >Limpiar Formulario</button> 
 								<a href="/hotel/buscar">Ir a buscar Reservaciones o huespédes</a>
-								<input class="btn btn-primary pull-right" onclick="guardarReservacion()" type="button" value="Guardar" /> 
+								<input class="btn btn-primary pull-right" onclick="guardarTopico()" type="button" value="Guardar" /> 
 								
 								
 							</div>
@@ -167,16 +148,15 @@
 	<!-- END SCRIPTS --> 
 	
 	<script>
-	function guardarReservacion() {
+	function guardarTopico(){ 
 		let postObj = {  
-			    checkIn: document.getElementById("checkIn").value, 
-			    checkOut: document.getElementById("checkOut").value, 
-			    valorReserva: document.getElementById("valorReserva").value,
-			    formaPago: document.getElementById("formaPago").value
+				titulo: document.getElementById("titulo").value, 
+				mensaje: document.getElementById("mensaje").value, 
+				usuarioFk: 1
 			}
 			
 	    let post = JSON.stringify(postObj)
-		const url = "/hotel/reservacion/"
+		const url = "/foro/topicos/"
 		let xhr = new XMLHttpRequest()
 		xhr.open('POST', url, true)
 		xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8')

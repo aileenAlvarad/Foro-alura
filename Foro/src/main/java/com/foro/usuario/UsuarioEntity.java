@@ -10,6 +10,8 @@ import jakarta.persistence.Table;
 @Table
 public class UsuarioEntity {
 	
+
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
@@ -43,5 +45,8 @@ public class UsuarioEntity {
 	}
 
 
-
+	@Override
+	public String toString() {
+		return "UsuarioEntity [id=" + id + ", name=" + name + ", password=" + password + "]";
+	}
 }

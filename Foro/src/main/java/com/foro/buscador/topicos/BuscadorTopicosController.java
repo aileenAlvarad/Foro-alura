@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.crosscutting.BaseController;
 import com.foro.topicos.TopicoDTO;
 import com.foro.topicos.TopicosEntity;
+import com.foro.topicos.TopicosResponseDTO;
 
 //Get http://localhost:8080/foro/buscar/topicos/{id}
 
@@ -37,7 +38,7 @@ public class BuscadorTopicosController extends BaseController {
 
 	@GetMapping(value = "/consultar-topicos")
 	@ResponseStatus(HttpStatus.OK)
-	public List<TopicosEntity> consultar() {
+	public List<TopicosResponseDTO> consultar() {
 		return buscadorTopicosService.consultarTodosLosTopicos();
 	}   
 	
